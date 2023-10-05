@@ -11,12 +11,16 @@ const page = () => {
       {/* // Cards Parent */}
       <div className=" py-10 w-full h-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 border-t-[1px] border-solid border-black">
         {/* Card */}
-        <Card image={product1} data={"views sweatpant"}  />
-        <Card image={product2} data={"WHEN IN DOUBT T-SHIRT"}  />
-        <Card image={product3} data={"so far gone magnetic letter set"}  />
-        <Card image={product4} data={"view hoodie"}  />
-        <Card image={product4} data={"view hoodie"}  />
-        <Card image={product3} data={"view hoodie"}  />
+        <Card image={product1} data={"views sweatpant"} height={25} />
+        <Card image={product2} data={"WHEN IN DOUBT T-SHIRT"} height={25} />
+        <Card
+          image={product3}
+          data={"so far gone magnetic letter set"}
+          height={25}
+        />
+        <Card image={product4} data={"view hoodie"} height={25} />
+        <Card image={product4} data={"view hoodie"} height={25} />
+        <Card image={product3} data={"view hoodie"} height={25} />
       </div>
     </div>
   );

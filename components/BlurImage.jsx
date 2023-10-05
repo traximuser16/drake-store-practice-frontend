@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function BlurImage({ image }) {
+export default function BlurImage({ image, height }) {
   const [isLoading, setLoading] = useState(true);
 
   return (
@@ -11,7 +11,7 @@ export default function BlurImage({ image }) {
       <Image
         alt=""
         src={image}
-        className={`h-[25rem] object-cover duration-700 ease-in-out  ${
+        className={`w-full h-[${height}rem] object-cover duration-700 ease-in-out  ${
           isLoading
             ? "scale-110 blur-2xl grayscale"
             : "scale-100 blur-0 grayscale-0"
