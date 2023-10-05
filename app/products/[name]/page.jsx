@@ -1,18 +1,24 @@
 "use client";
 
 import BlurImage from "@/components/BlurImage";
-import { useParams } from "next/navigation";
+// import { useParams } from "next/navigation";
 import product1 from "@/assets/product1.jpg";
 import product2 from "@/assets/product2.jpg";
 import product3 from "@/assets/product3.jpg";
 import product4 from "@/assets/product4.jpg";
 import Card from "@/components/Card";
 import Footer from "@/components/Footer";
+import clickOutside from "@/components/ClickOutside";
 
 const ProductDynamicPage = () => {
-  const params = useParams();
-  const paramsData = decodeURIComponent(params?.name);
-  const name = paramsData.replace(/ /g, "-");
+  const { ref, menuToggle, setToggle } = clickOutside(false);
+  // const params = useParams();
+  // const paramsData = decodeURIComponent(params?.name);
+  // const name = paramsData.replace(/ /g, "-");
+  const menuToggleHandler = () => {
+    setToggle(!menuToggle);
+  };
+
   return (
     <>
       <div className="lg:px-10 lg:py-6 bg-[#fbf9f9ff]">
@@ -35,7 +41,43 @@ const ProductDynamicPage = () => {
             {/* Sized Guide & Buttons */}
             <h2 className="underline mb-4">Size Guide</h2>
 
-            <button className="w-full flex justify-between items-center py-6 px-4 bg-transparent border-y-2 border-solid border-black transition-all duration-300 hover:bg-gray-300">
+            {/* Sizes menu toggle */}
+            <menu
+              ref={ref}
+              className={`w-[20rem] ${
+                menuToggle == true ? "grid" : "hidden"
+              }  grid-cols-2 absolute bg-white translate-y-0 lg:translate-y-16 sizes-menu`}
+            >
+              <div className="py-8 px-4 flex justify-between items-center border-2 border-solid border-black">
+                <h2 className="font-bold">S</h2>
+                <div className="w-4 h-4 rounded-full bg-black product-btn-dot" />
+              </div>
+              <div className="py-8 px-4 flex justify-between items-center border-2 border-solid border-black">
+                <h2 className="font-bold">M</h2>
+                <div className="w-4 h-4 rounded-full bg-black product-btn-dot" />
+              </div>
+              <div className="py-8 px-4 flex justify-between items-center border-2 border-solid border-black">
+                <h2 className="font-bold">L</h2>
+                <div className="w-4 h-4 rounded-full bg-black product-btn-dot" />
+              </div>
+              <div className="py-8 px-4 flex justify-between items-center border-2 border-solid border-black">
+                <h2 className="font-bold">XL</h2>
+                <div className="w-4 h-4 rounded-full bg-black product-btn-dot" />
+              </div>
+              <div className="py-8 px-4 flex justify-between items-center border-2 border-solid border-black">
+                <h2 className="font-bold">XXL</h2>
+                <div className="w-4 h-4 rounded-full bg-black product-btn-dot" />
+              </div>
+              <div className="py-8 px-4 flex justify-between items-center border-2 border-solid border-black">
+                <h2 className="font-bold">XXXL</h2>
+                <div className="w-4 h-4 rounded-full bg-black product-btn-dot" />
+              </div>
+            </menu>
+
+            <button
+              className="w-full flex justify-between items-center py-6 px-4 bg-transparent border-y-2 border-solid border-black transition-all duration-300 hover:bg-gray-300"
+              onClick={menuToggleHandler}
+            >
               <div className="text-lg">Size:S</div>
               <div className="w-4 h-4 rounded-full bg-black" />
             </button>

@@ -52,3 +52,11 @@ input:focus::placeholder{
 .product-btn:hover .product-btn-dot{
   background-color: white;
 }
+
+/* sizes-menu */
+.sizes-menu div{
+ transition: all 300ms;
+}
+.sizes-menu div:hover{
+  background-color: #8080807a;
+}
