@@ -1,13 +1,11 @@
 "use client";
 
 import BlurImage from "@/components/BlurImage";
-// import { useParams } from "next/navigation";
 import product1 from "@/assets/product1.jpg";
 import product2 from "@/assets/product2.jpg";
 import product3 from "@/assets/product3.jpg";
 import product4 from "@/assets/product4.jpg";
 import Card from "@/components/Card";
-import Footer from "@/components/Footer";
 import clickOutside from "@/components/ClickOutside";
 
 const ProductDynamicPage = () => {
@@ -18,11 +16,11 @@ const ProductDynamicPage = () => {
   const menuToggleHandler = () => {
     setToggle(!menuToggle);
   };
-
+  
   return (
     <>
-      <div className="lg:px-10 lg:py-6 bg-[#fbf9f9ff]">
-        <div className="w-full h-auto flex flex-col lg:flex-row justify-between items-start gap-4 border-none lg:border-t-2 lg:border-solid lg:border-black pt-6">
+      <div className="p-0 lg:px-10 lg:py-6 bg-[#fbf9f9ff]">
+        <div className="w-full h-auto flex flex-col lg:flex-row justify-between items-start gap-4 border-none lg:border-t-2 lg:border-solid lg:border-black lg:pt-6">
           <div className="w-full lg:w-1/2">
             <BlurImage image={product1} height={45} />
           </div>
@@ -112,7 +110,6 @@ const ProductDynamicPage = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

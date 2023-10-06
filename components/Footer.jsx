@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -25,7 +26,9 @@ const Footer = () => {
 
         {/* Term & Condition */}
         <ul className="space-y-2 font-bold flex flex-col justify-center items-start lg:items-center text-left">
-          <li>Terms & Conditions </li>
+          <Link href={"/products"}>
+            <li>Terms & Conditions </li>
+          </Link>
           <li>Privacy Policy</li>
           <li>FAQs</li>
         </ul>

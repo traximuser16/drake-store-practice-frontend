@@ -60,3 +60,15 @@ input:focus::placeholder{
 .sizes-menu div:hover{
   background-color: #8080807a;
 }
+
+.bar {
+  position: relative;
+  top: 0;
+  background-color: #f05222 !important;
+  height: 4px !important;
+  
+}
+
+.cart-scroll-container::-webkit-scrollbar{
+  display: none;
+}
