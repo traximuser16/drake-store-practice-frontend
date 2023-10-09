@@ -1,7 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'i.ibb.co',
+                port: '',
+                pathname: '/**'
+            },
+        ],
+    },
     env: {
-        baseURL: 'http://127.0.0.1:5000',
+        BASEURL: 'http://127.0.0.1:5000',
     },
 }
 

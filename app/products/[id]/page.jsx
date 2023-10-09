@@ -1,28 +1,28 @@
 "use client";
 
 import BlurImage from "@/components/BlurImage";
-import product1 from "@/assets/product1.jpg";
-import product2 from "@/assets/product2.jpg";
-import product3 from "@/assets/product3.jpg";
-import product4 from "@/assets/product4.jpg";
 import Card from "@/components/Card";
 import clickOutside from "@/components/ClickOutside";
+import { useParams } from "next/navigation";
+import { useSelector } from "react-redux";
 
 const ProductDynamicPage = () => {
+  const { id } = useParams(); // Use the correct way to get params from the URL
+  const productsData = useSelector((state) => state._todoProduct._products);
+  const selectedProduct = productsData.find((item) => item.id == id);
+  console.log(productsData);
+
   const { ref, menuToggle, setToggle } = clickOutside(false);
-  // const params = useParams();
-  // const paramsData = decodeURIComponent(params?.name);
-  // const name = paramsData.replace(/ /g, "-");
   const menuToggleHandler = () => {
     setToggle(!menuToggle);
   };
-  
+
   return (
     <>
       <div className="p-0 lg:px-10 lg:py-6 bg-[#fbf9f9ff]">
         <div className="w-full h-auto flex flex-col lg:flex-row justify-between items-start gap-4 border-none lg:border-t-2 lg:border-solid lg:border-black lg:pt-6">
           <div className="w-full lg:w-1/2">
-            <BlurImage image={product1} height={45} />
+            <BlurImage image={selectedProduct.p_image} height={45} />
           </div>
 
           <div className="w-full lg:w-1/2 flex flex-col font-bold p-5 lg:p-0">
@@ -94,19 +94,20 @@ const ProductDynamicPage = () => {
           </div>
 
           <div className="py-4 w-full h-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
-            {/* Card */}
-            <Card image={product1} data={"views sweatpant"} height={25} />
-            <Card image={product2} data={"WHEN IN DOUBT T-SHIRT"} height={25} />
-            <Card
-              image={product3}
-              data={"so far gone magnetic letter set"}
-              height={25}
-            />
-            <Card
-              image={product4}
-              data={"so far gone magnetic letter set"}
-              height={25}
-            />
+            {/* {productsData?.map((items, index) => {
+              <Card
+                image={items.p_image}
+                data={"views sweatpant"}
+                id={items.id}
+                index={index}
+                key={index}
+              />;
+            })} */}
+            {productsData.map((items, index) => {
+              return (
+                <Card image={items.p_image} data={items.p_name} id={items.id} index={index} />
+              );
+            })}
           </div>
         </div>
       </div>
