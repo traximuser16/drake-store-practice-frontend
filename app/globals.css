@@ -16,20 +16,46 @@ code {
     monospace;
 }
 
-::selection{
+::selection {
   background-color: #000000bb;
   color: white;
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 10px;
   background-color: white;
 }
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   background-color: white;
 }
-::-webkit-scrollbar-thumb{
-  background-color: rgba(0, 0, 0, 0.74);
+::-webkit-scrollbar-thumb {
+  background-color: #000000bd;
   border-radius: 20px;
+}
+
+.images {
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.image-left-sec {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  z-index: 10;
+  cursor: url("../assets/arrow-left.svg") 15 8, e-resize;
+}
+
+.image-right-sec{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  z-index: 10;
+  cursor: url("../assets/arrow-right.svg") 15 8, e-resize;
 }
 
 /* input{
@@ -49,15 +75,16 @@ input:focus::placeholder{
 } */
 
 /* Dynamic Product Section Button */
-.product-btn:hover .product-btn-dot{
+.product-btn:hover .product-btn-dot {
   background-color: white;
 }
 
 /* sizes-menu */
-.sizes-menu div{
- transition: all 300ms;
+.sizes-menu div {
+  transition: all 300ms;
 }
-.sizes-menu div:hover{
+
+.sizes-menu div:hover {
   background-color: #8080807a;
 }
 
@@ -66,9 +93,8 @@ input:focus::placeholder{
   top: 0;
   background-color: #f05222 !important;
   height: 4px !important;
-  
 }
 
-.cart-scroll-container::-webkit-scrollbar{
+.cart-scroll-container::-webkit-scrollbar {
   display: none;
 }

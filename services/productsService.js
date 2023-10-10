@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const getAllProductsData = async () => {
     const response = await axios(`${process.env.BASEURL}/api/v1/getAllProducts`, { method: "GET" })
@@ -17,7 +18,11 @@ const createProduct = async (data) => {
     return response;
 }
 
+
+
+
 export {
     getAllProductsData,
-    createProduct
+    createProduct,
+    // getCartItems
 }

@@ -2,32 +2,43 @@
 
 import BlurImage from "@/components/BlurImage";
 import Card from "@/components/Card";
+import Cart from "@/components/Cart";
 import clickOutside from "@/components/ClickOutside";
 import { useParams } from "next/navigation";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const ProductDynamicPage = () => {
+  const dispatch = useDispatch();
   const { id } = useParams(); // Use the correct way to get params from the URL
   const productsData = useSelector((state) => state._todoProduct._products);
-  const selectedProduct = productsData.find((item) => item.id == id);
-  console.log(productsData);
+  const selectedProduct = productsData?.find((item) => item.id == id);
 
   const { ref, menuToggle, setToggle } = clickOutside(false);
   const menuToggleHandler = () => {
     setToggle(!menuToggle);
   };
 
+  const addToCartAction = (product) => ({
+    type: "ADD_CART", // Replace with your actual action type
+    payload: product,
+  });
+
+  const addToCart = (product) => {
+    dispatch(addToCartAction(product));
+  };
+
   return (
     <>
-      <div className="p-0 lg:px-10 lg:py-6 bg-[#fbf9f9ff]">
+      <Cart/>
+      <div className="p-0 lg:px-10 lg:py-6 bg-[#fbf9f9ff] z-10">
         <div className="w-full h-auto flex flex-col lg:flex-row justify-between items-start gap-4 border-none lg:border-t-2 lg:border-solid lg:border-black lg:pt-6">
           <div className="w-full lg:w-1/2">
-            <BlurImage image={selectedProduct.p_image} height={45} />
+            <BlurImage image={selectedProduct?.p_image} />
           </div>
 
           <div className="w-full lg:w-1/2 flex flex-col font-bold p-5 lg:p-0">
             <h2 className="font-bold text-2xl mb-4">WHEN IN DOUBT T-SHIRT</h2>
-            <price className="text-2xl">49.00$</price>
+            <price className="text-2xl">{`${selectedProduct?.price}$`}</price>
             <p className="mt-12 text-lg w-full lg:w-1/2">
               Short sleeve t-shirt. 100% cotton. Garment-dyed.
             </p>
@@ -80,7 +91,10 @@ const ProductDynamicPage = () => {
               <div className="w-4 h-4 rounded-full bg-black" />
             </button>
 
-            <button className="w-full flex justify-between items-center py-6 px-4 bg-transparent transition-all duration-300 hover:bg-black hover:text-white product-btn">
+            <button
+              className="w-full flex justify-between items-center py-6 px-4 bg-transparent transition-all duration-300 hover:bg-black hover:text-white product-btn"
+              onClick={() => addToCart(selectedProduct)}
+            >
               <div className="text-lg">Add To Cart</div>
               <div className="w-4 h-4 rounded-full bg-black product-btn-dot" />
             </button>
@@ -94,18 +108,14 @@ const ProductDynamicPage = () => {
           </div>
 
           <div className="py-4 w-full h-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
-            {/* {productsData?.map((items, index) => {
-              <Card
-                image={items.p_image}
-                data={"views sweatpant"}
-                id={items.id}
-                index={index}
-                key={index}
-              />;
-            })} */}
-            {productsData.map((items, index) => {
+            {productsData?.map((items, index) => {
               return (
-                <Card image={items.p_image} data={items.p_name} id={items.id} index={index} />
+                <Card
+                  image={items.p_image}
+                  data={items.p_name}
+                  id={items.id}
+                  index={index}
+                />
               );
             })}
           </div>

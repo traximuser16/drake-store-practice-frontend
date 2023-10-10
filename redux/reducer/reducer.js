@@ -7,13 +7,12 @@ const initProduct = {
     numberCart: 0,
     Carts: [],
     _products: null
-}
+};
 
-const response = getAllProductsData()
+const response = getAllProductsData();
 response.then(res => {
     initProduct._products = res
-    console.log(initProduct._products)
-})
+});
 
 function todoProduct(state = initProduct, action) {
     switch (action.type) {
@@ -27,39 +26,29 @@ function todoProduct(state = initProduct, action) {
                 ...state
             }
         case ADD_CART:
-            if (state.numberCart == 0) {
-                let cart = {
-                    id: action.payload.id,
+            const existingCartItemIndex = state.Carts.findIndex(
+                (item) => item.id === action.payload?.id
+            );
+            if (existingCartItemIndex !== -1) {
+                // If the product is already in the cart, increase its quantity
+                state.Carts[existingCartItemIndex].quantity++;
+            } else {
+                // If the product is not in the cart, add it as a new item
+                const newCartItem = {
+                    id: action.payload?.id,
                     quantity: 1,
-                    name: action.payload.name,
-                    image: action.payload.image,
-                    price: action.payload.price
-                }
-                state.Carts.push(cart);
+                    name: action.payload?.p_name,
+                    image: action.payload?.p_image,
+                    price: action.payload?.price,
+                };
+                state.Carts.push(newCartItem);
             }
-            else {
-                let check = false;
-                state.Carts.map((item, key) => {
-                    if (item.id == action.payload.id) {
-                        state.Carts[key].quantity++;
-                        check = true;
-                    }
-                });
-                if (!check) {
-                    let _cart = {
-                        id: action.payload.id,
-                        quantity: 1,
-                        name: action.payload.name,
-                        image: action.payload.image,
-                        price: action.payload.price
-                    }
-                    state.Carts.push(_cart);
-                }
-            }
+
             return {
                 ...state,
-                numberCart: state.numberCart + 1
-            }
+                numberCart: state.numberCart + 1,
+            };
+
         case INCREASE_QUANTITY:
             state.numberCart++
             state.Carts[action.payload].quantity++;
@@ -90,7 +79,8 @@ function todoProduct(state = initProduct, action) {
         default:
             return state;
     }
-}
+};
+
 const ShopApp = combineReducers({
     _todoProduct: todoProduct
 });
