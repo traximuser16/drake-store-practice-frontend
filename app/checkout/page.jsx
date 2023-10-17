@@ -6,11 +6,11 @@ import CountriesSelect from "@/components/CountriesSelect";
 
 const page = () => {
   return (
-      <div className="w-full grid place-items-center py-4 checkout-back">
+    <div className="w-full grid place-items-center sm:py-4 checkout-back">
       {/* // Page */}
-      <div className="w-[80%] h-auto text-black flex flex-col-reverse lg:flex-row items-start gap-8 bg-[#ffffff] rounded-md shadow-2xl shadow-black">
+      <div className="max-w-7xl mx-auto h-auto text-black flex flex-col-reverse lg:flex-row items-start gap-8 bg-[#ffffff] rounded-md shadow-2xl shadow-black">
         {/* Form Section Left */}
-        <div className="w-full lg:w-[55%] h-full p-10 lg:pt-16 lg:pb-6 lg:pl-20 lg:pr-4">
+        <div className="w-full lg:w-[55%] h-full py-10 px-4 lg:pt-16 lg:pb-6 lg:pl-20 lg:pr-4">
           <div className="text-xs text-gray-400 space-x-2 mb-10">
             <h2 className="text-3xl mb-4 text-black">DrakeRelated</h2>
             <span className="text-black font-semibold">Information</span>
@@ -41,7 +41,7 @@ const page = () => {
             <input
               type="text"
               placeholder="Email"
-              className="w-full border-2 border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
+              className="w-full border-[1px] border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
             />
             <div className="space-x-3 flex items-center">
               <input
@@ -62,56 +62,51 @@ const page = () => {
           <div>
             <h2 className="text-lg mb-4">Shipping Information</h2>
             <form className="space-y-2">
-              {/* <input
-              type="text"
-              placeholder="Country/Region"
-              className="w-full border-2 border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
-            /> */}
               <CountriesSelect />
 
-              <div className="flex justify-between items-center gap-4">
+              <div className="flex flex-col md:flex-row justify-between items-center md:gap-4 gap-2">
                 <input
                   type="text"
                   placeholder="First Name"
-                  className="w-full border-2 border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
+                  className="w-full border-[1px] border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
                 />
                 <input
                   type="text"
                   placeholder="Last Name"
-                  className="w-full border-2 border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
+                  className="w-full border-[1px] border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
                 />
               </div>
 
               <input
                 type="text"
                 placeholder="Address"
-                className="w-full border-2 border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
+                className="w-full border-[1px] border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
               />
 
               <input
                 type="text"
                 placeholder="Apartment, suite, etc (Optional)"
-                className="w-full border-2 border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
+                className="w-full border-[1px] border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
               />
 
-              <div className="flex justify-between items-center gap-4">
+              <div className="flex flex-col md:flex-row justify-between items-center md:gap-4 gap-2">
                 <input
                   type="text"
                   placeholder="City"
-                  className="w-full border-2 border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
+                  className="w-full border-[1px] border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
                 />
 
                 <input
                   type="text"
                   placeholder="Postal Code"
-                  className="w-full border-2 border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
+                  className="w-full border-[1px] border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
                 />
               </div>
 
               <input
                 type="text"
                 placeholder="Phone"
-                className="w-full border-2 border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
+                className="w-full border-[1px] border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
               />
             </form>
 
@@ -137,9 +132,9 @@ const page = () => {
         </div>
 
         {/* Products Section */}
-        <div className="w-full h-auto lg:h-[50vh] lg:w-[45%] p-10 lg:pt-16 lg:pb-6 lg:pl-8 lg:pr-20 checkout-right-sec space-y-5">
+        <div className="w-full h-auto lg:w-[45%] py-10 px-4 lg:pt-16 lg:pb-6 lg:pl-8 lg:pr-20 checkout-right-sec space-y-5">
           <div className="flex justify-between items-center">
-            <div className="w-3/4 flex justify-start items-start gap-4">
+            <div className="w-3/4 flex flex-col sm:flex-row justify-start items-start gap-4">
               <div className="relative">
                 <Image src={shirt} className="w-20 object-contain rounded-md" />
                 {/* Product Length */}
@@ -155,14 +150,14 @@ const page = () => {
           </div>
           {/* Line */}
           <div className="w-full h-[1px] bg-gray-200 grid place-items-center" />
-          <div className="w-full flex items-center justify-between">
+          <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-2">
             <input
               type="text"
               placeholder="Discount Code"
-              className="w-3/4 border-2 border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
+              className="w-full lg:w-3/4 border-[1px] border-solid border-gray-200 placeholder:text-gray-500 placeholder:text-sm px-2 py-3 rounded-md outline-none focus:border-black"
             />
             <button
-              className="px-5 py-3 bg-gray-500 rounded-md text-white"
+              className="w-full lg:w-auto px-5 py-3 bg-gray-500 rounded-md text-white"
               disabled
             >
               Apply
@@ -174,11 +169,11 @@ const page = () => {
           {/* Subtotal & Shipping */}
           <div className="space-y-2">
             <div className="flex justify-between items-center">
-              <h2 className="text-gray-600">Subtotal</h2>
+              <h2 className="text-gray-600 text-sm lg:text-md">Subtotal</h2>
               <p className="font-semibold">$45.00</p>
             </div>
             <div className="flex justify-between items-center space-y-2">
-              <h2 className="text-gray-600">Shipping</h2>
+              <h2 className="text-gray-600 text-sm lg:text-md">Shipping</h2>
               <p className="text-sm">Calculated at next step</p>
             </div>
           </div>
@@ -187,8 +182,9 @@ const page = () => {
           <div className="w-full h-[1px] bg-gray-200 grid place-items-center" />
           <div className="flex justify-between items-center">
             <h2 className="text-gray-600">Total</h2>
-            <p className="font-semibold">
-              <span className="text-gray-400">USD </span>$45.00
+            <p className="font-semibold text-sm lg:text-2xl">
+              <span className="text-gray-400 text-sm lg:text-lg">USD </span>
+              $45.00
             </p>
           </div>
         </div>

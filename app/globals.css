@@ -127,8 +127,13 @@ input:focus::placeholder{
     height: 4rem;
   }
 }
+
 input {
   transition: all 300ms;
+}
+
+input:hover{
+  border-color:  #000000af;
 }
 
 .cart-image-length {
