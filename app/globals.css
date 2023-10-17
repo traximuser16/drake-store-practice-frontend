@@ -48,7 +48,7 @@ code {
   cursor: url("../assets/arrow-left.svg") 15 8, e-resize;
 }
 
-.image-right-sec{
+.image-right-sec {
   position: absolute;
   top: 0;
   right: 0;
@@ -57,7 +57,6 @@ code {
   z-index: 10;
   cursor: url("../assets/arrow-right.svg") 15 8, e-resize;
 }
-
 /* input{
   transition: all 250ms;
   border: 2px solid #e4e4e4;
@@ -97,4 +96,93 @@ input:focus::placeholder{
 
 .cart-scroll-container::-webkit-scrollbar {
   display: none;
+}
+
+.toastAnimation {
+  animation: toastAnimation 400ms forwards;
+}
+.provider-container {
+  position: relative;
+  z-index: 5;
+}
+.provider-container::before {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: "Express Checkout";
+  color: #1f1f1f;
+  font-weight: 600;
+  z-index: 10;
+  background-color: white;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+@keyframes toastAnimation {
+  from {
+    height: 0;
+  }
+  to {
+    height: 4rem;
+  }
+}
+input {
+  transition: all 300ms;
+}
+
+.cart-image-length {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(10px, -10px);
+  padding: 3px 10px;
+  border-radius: 50%;
+  background-color: #313131;
+  color: white;
+  font-size: 14px;
+  z-index: 10;
+}
+/* .checkout-right-sec {
+  background: linear-gradient(to bottom, #bbbbbb, #f0f0f0, #f0f0f0, white);
+} */
+/* .checkout-sec{
+  z-index: 20;
+} */
+
+.background-clip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  background-color: #0000009c;
+  z-index: -10;
+}
+
+.checkout-back {
+  background: #11998e; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #38ef7d,
+    #11998e
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #38ef7d,
+    #11998e
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  /* background: #333333; 
+  background: -webkit-linear-gradient(
+    to right,
+    #333333,
+    #dd1818
+  );
+  background: linear-gradient(
+    to right,
+    #333333,
+    #dd1818
+  ); */
 }

@@ -48,7 +48,7 @@ export function UpdateCart(payload) {
 export function DeleteCart(payload) {
     return {
         type: 'DELETE_CART',
-        payload
+        payload: payload
     }
 }
 

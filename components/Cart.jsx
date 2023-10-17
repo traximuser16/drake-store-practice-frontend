@@ -1,13 +1,12 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useSelector } from "react-redux";
 
 const Cart = ({ event }) => {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(true);
   const [total, setTotal] = useState(0);
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const cart = useSelector((state) => state._todoProduct.Carts);
 
   // useEffect(() => {

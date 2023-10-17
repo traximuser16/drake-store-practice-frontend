@@ -13,13 +13,14 @@ const page = () => {
           Shop All
         </h1>
         {/* // Cards Parent */}
-        <div className=" py-10 w-full h-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 border-t-[1px] border-solid border-black">
-          {productsData?.map((items, index) => {
+        <div className="py-10 h-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 border-t-[1px] border-solid border-black">
+          {productsData?.map((items) => {
             return (
               <Card
                 image={items.p_image}
-                data={items.p_name}
+                title={items.title}
                 id={items.id}
+                price={items.price}
               />
             );
           })}

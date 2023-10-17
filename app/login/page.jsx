@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import axios from "axios";
@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const Login = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [userData, setData] = useState([]);
 
   const {

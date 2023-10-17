@@ -1,5 +1,3 @@
-
-
 const HomeLayout = ({ children }) => {
   return (
     <>
