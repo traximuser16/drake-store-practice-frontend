@@ -1,9 +1,10 @@
 "use client";
 
-import {  useState } from "react";
+import Link from "next/link";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
-const Cart = ({ event }) => {
+const Cart = () => {
   const [isOpen, setOpen] = useState(true);
   const [total, setTotal] = useState(0);
   // const [data, setData] = useState([]);
@@ -37,7 +38,9 @@ const Cart = ({ event }) => {
       <div className="w-full h-3/4 overflow-scroll cart-scroll-container">
         {/* Single Cart Product */}
         {cart?.map((items, index) => {
-          return <>{index}</>;
+          return <>
+            {index}
+          </>;
         })}
 
         {/* // <div
@@ -73,10 +76,12 @@ const Cart = ({ event }) => {
         <h2>{`${total}$`}</h2>
       </button>
 
-      <button className="w-full flex justify-between items-center py-3 px-4 bg-transparent transition-all duration-300 hover:bg-black hover:text-white product-btn">
-        <div className="text-lg">Checkout</div>
-        <div className="w-4 h-4 rounded-full bg-black product-btn-dot" />
-      </button>
+      <Link href={"/checkout"}>
+        <button className="w-full flex justify-between items-center py-3 px-4 bg-transparent transition-all duration-300 hover:bg-black hover:text-white product-btn">
+          <div className="text-lg">Checkout</div>
+          <div className="w-4 h-4 rounded-full bg-black product-btn-dot" />
+        </button>
+      </Link>
     </div>
   );
 };

@@ -18,9 +18,6 @@ const createProduct = async (data) => {
     return response;
 }
 
-
-
-
 export {
     getAllProductsData,
     createProduct,

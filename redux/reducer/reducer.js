@@ -30,10 +30,8 @@ function todoProduct(state = initProduct, action) {
                 (item) => item.id === action.payload?.id
             );
             if (existingCartItemIndex !== -1) {
-                // If the product is already in the cart, increase its quantity
                 state.Carts[existingCartItemIndex].quantity++;
             } else {
-                // If the product is not in the cart, add it as a new item
                 const newCartItem = {
                     id: action.payload?.id,
                     quantity: 1,

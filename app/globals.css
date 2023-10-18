@@ -132,20 +132,21 @@ input {
   transition: all 300ms;
 }
 
-input:hover{
-  border-color:  #000000af;
+input:hover {
+  border-color: #585858af;
 }
 
 .cart-image-length {
   position: absolute;
   top: 0;
   right: 0;
-  transform: translate(10px, -10px);
-  padding: 3px 10px;
+  transform: translate(10px, -10px) rotate(-5deg);
+  padding: 2px 9px;
   border-radius: 50%;
-  background-color: #313131;
+  background-color: #eb2222;
   color: white;
   font-size: 14px;
+  font-weight: bold;
   z-index: 10;
 }
 /* .checkout-right-sec {
@@ -161,7 +162,6 @@ input:hover{
   left: 0;
   width: 100%;
   height: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   background-color: #0000009c;
   z-index: -10;
 }
@@ -172,13 +172,13 @@ input:hover{
     to right,
     #38ef7d,
     #11998e
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  );
   background: linear-gradient(
     to right,
     #38ef7d,
     #11998e
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  );
+  /* clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%); */
   /* background: #333333; 
   background: -webkit-linear-gradient(
     to right,
@@ -190,4 +190,12 @@ input:hover{
     #333333,
     #dd1818
   ); */
+}
+.checkout-footer-span span {
+  cursor: pointer;
+  color: grey;
+  transition: all 300ms;
+}
+.checkout-footer-span span:hover {
+  color: black;
 }
