@@ -16,7 +16,7 @@ const page = () => {
   });
   return (
     <div className="w-full grid place-items-center sm:py-4 checkout-back z-10">
-      <div className="z-20 max-w-7xl mx-auto h-auto text-black flex flex-col-reverse lg:flex-row items-start gap-8 bg-[#ffffff] sm:rounded-2xl shadow-2xl shadow-black">
+      <div className="z-20 max-w-7xl mx-auto h-auto text-black flex flex-col-reverse lg:flex-row items-start gap-8 bg-[#ffffff] sm:rounded-2xl custom-shadow">
         {/* Form Section Left */}
         <div className="z-20 w-full lg:w-[55%] h-full py-10 px-4 lg:pt-16 lg:pb-6 lg:pl-20 lg:pr-4">
           <div className="hidden lg:block text-xs text-gray-400 space-x-2 mb-10">

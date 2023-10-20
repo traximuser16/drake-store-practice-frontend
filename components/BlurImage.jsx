@@ -31,16 +31,15 @@ export default function BlurImage({ image, id }) {
               isLoading
                 ? "scale-110 blur-2xl grayscale"
                 : "scale-100 blur-0 grayscale-0"
-              })`
-            }
+            })`}
             onLoadingComplete={() => setLoading(false)}
           />
         </Link>
       ) : (
-        <Image
-          src={image && image[currentImageIndex]}
-          width={1000}
-          height={1000}
+        <Image 
+          src={image && image[currentImageIndex]} 
+          width={1000} 
+          height={1000} 
           className={`object-cover duration-700 ease-in-out ${
             isLoading
               ? "scale-110 blur-2xl grayscale"

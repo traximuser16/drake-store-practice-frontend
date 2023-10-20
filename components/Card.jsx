@@ -3,7 +3,9 @@
 import React, { useState } from "react";
 import BlurImage from "./BlurImage";
 
-const Card = ({ image, title, price, id, index }) => {
+const Card = (
+  { image, title, price, id, index }
+) => {
   const [price_description, setDescription] = useState(price);
 
   return (

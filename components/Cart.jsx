@@ -1,25 +1,28 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const Cart = () => {
   const [isOpen, setOpen] = useState(true);
   const [total, setTotal] = useState(0);
-  // const [data, setData] = useState([]);
-  const cart = useSelector((state) => state._todoProduct.Carts);
+  const [cartItems, setItems] = useState();
+  const response = useSelector((items) => items.rootReducer.cartItems);
 
-  // useEffect(() => {
-  //   const totalHandler = () => {
-  //     const calculatedTotal = cart.reduce(
-  //       (prev, current) => prev + current.price,
-  //       0
-  //     );
-  //     setTotal(calculatedTotal);
-  //   };
-  //   totalHandler();
-  // }, [cart]);
+  useEffect(() => {
+    const totalHandler = () => {
+      const calculatedTotal = response.reduce(
+        (prev, current) => prev + current?.price,
+        0
+      );
+      setTotal(calculatedTotal);
+    };
+  console.log(response);
+    setItems(response);
+    totalHandler();
+  }, [response]);
 
   return (
     <div
@@ -37,35 +40,40 @@ const Cart = () => {
       {/* Products section in Cart scrollable */}
       <div className="w-full h-3/4 overflow-scroll cart-scroll-container">
         {/* Single Cart Product */}
-        {cart?.map((items, index) => {
-          return <>
-            {index}
-          </>;
+        {cartItems?.map((items, index) => {
+          return (
+            <>
+              <div
+                className="flex items-start justify-between gap-4 py-8 mb-4 border-t-2 border-solid border-black h-64 overflow-hidden"
+                key={index}
+              >
+                <div className="w-1/2">
+                  <Image
+                    src={items?.p_image && items?.p_image[0]}
+                    width={1000}
+                    height={1000}
+                    className="object-contain"
+                  />
+                </div>
+                <div className="w-1/2 h-full flex flex-col justify-between items-start px-2">
+                  <div className="space-y-2 font-bold text-lg">
+                    <h2 className="capitalize">{items?.p_name}</h2>
+                    <h3>{items?.price}$</h3>
+                  </div>
+                  <div className="w-full rounded-2xl border-2 border-solid border-black flex justify-between items-center px-3 py-1">
+                    <button>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <button>2</button>
+                    <button>
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </>
+          );
         })}
-
-        {/* // <div
-            //   className="flex items-start justify-between gap-4 py-8 mb-4 border-t-2 border-solid border-black h-64 overflow-hidden"
-            //   key={index}
-            // >
-            //   <div className="w-1/2">
-            //     <Image src={items.image} className="object-contain" />
-            //   </div>
-            //   <div className="w-1/2 h-full flex flex-col justify-between items-start px-2">
-            //     <div className="space-y-2 font-bold text-lg">
-            //       <h2 className="capitalize">{items.name}</h2>
-            //       <h3>{items.price}$</h3>
-            //     </div>
-            //     <div className="w-full rounded-2xl border-2 border-solid border-black flex justify-between items-center px-3 py-1">
-            //       <button>
-            //         <i class="fa-solid fa-minus"></i>
-            //       </button>
-            //       <button>2</button>
-            //       <button>
-            //         <i class="fa-solid fa-plus"></i>
-            //       </button>
-            //     </div>
-            //   </div>
-            // </div> */}
       </div>
 
       <button
