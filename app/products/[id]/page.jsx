@@ -35,7 +35,7 @@ const ProductDynamicPage = () => {
     dispatch({
       type: "ADD_TO_CART",
       payload: product,
-    });
+  });
 
   return (
     <>
@@ -47,7 +47,7 @@ const ProductDynamicPage = () => {
             <BlurImage image={sProduct?.p_image} />
           </div>
 
-          <div className="w-full lg:w-1/2 flex flex-col font-bold p-5 lg:p-0">
+          <div className="w-full lg:w-1/2 flex flex-col font-light p-5 lg:p-0">
             <h2 className="font-bold text-2xl mb-4">{sProduct?.title}</h2>
             <div className="text-2xl">{`${sProduct?.price}$`}</div>
             {sProduct?.p_description?.map((items, index) => {
@@ -58,7 +58,7 @@ const ProductDynamicPage = () => {
               );
             })}
             {/* Sized Guide & Buttons */}
-            <h2 className="underline mb-4">Size Guide</h2>
+            <h2 className="underline mb-4 font-semibold">Size Guide</h2>
             <button
               className="relative w-full flex justify-between items-center py-6 px-5 bg-transparent border-y-[1px] border-solid border-black transition-all duration-300 hover:bg-gray-300"
               onClick={menuToggleHandler}

@@ -55,16 +55,19 @@ const Cart = () => {
                     className="object-contain"
                   />
                 </div>
-                <div className="w-1/2 h-full flex flex-col justify-between items-start px-2">
+                
+                <div className="w-1/2 h-1/2 gap-10 flex flex-col justify-between items-start px-2">
+
                   <div className="space-y-2 font-bold text-lg">
                     <h2 className="capitalize">{items?.p_name}</h2>
                     <h3>{items?.price}$</h3>
                   </div>
-                  <div className="w-full rounded-2xl border-2 border-solid border-black flex justify-between items-center px-3 py-1">
+
+                  <div className="w-full rounded-2xl border-[1.5px] border-solid border-black flex justify-between items-center px-4 py-1 text-xs">
                     <button>
                       <i class="fa-solid fa-minus"></i>
                     </button>
-                    <button>2</button>
+                    <button className="text-sm">2</button>
                     <button>
                       <i class="fa-solid fa-plus"></i>
                     </button>
