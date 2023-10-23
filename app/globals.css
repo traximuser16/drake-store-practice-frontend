@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -16,6 +19,7 @@ code {
     monospace;
 }
 
+/*     Scroll      */
 ::selection {
   background-color: #000000bb;
   color: white;
@@ -31,6 +35,7 @@ code {
   background-color: #000000bd;
   border-radius: 20px;
 }
+/*    Image Left Right sections      */
 
 .images {
   position: relative;
@@ -38,6 +43,7 @@ code {
   z-index: 5;
 }
 
+/*      Images left right Arrow Cursor             */
 .image-left-sec {
   position: absolute;
   top: 0;
@@ -46,6 +52,19 @@ code {
   height: 100%;
   z-index: 10;
   cursor: url("../assets/arrow-left.svg") 15 8, e-resize;
+}
+
+.image-left-sec-arrow:hover,
+.image-right-sec-arrow:hover {
+  opacity: 0;
+}
+
+.image-left-sec-arrow,
+.image-right-sec-arrow {
+  display: grid;
+  place-items: center;
+  transition: all 250ms;
+  opacity: 0.3;
 }
 
 .image-right-sec {
@@ -72,21 +91,8 @@ code {
   letter-spacing: 2px;
 }
 
-/* input{
-  transition: all 250ms;
-  border: 2px solid #e4e4e4;
-  background-color: #e4e4e4;
-  outline: none;
-}
+/**/
 
-input:focus{
-  border: 2px solid #6925a8;
-}
-
-input:focus::placeholder{
-  font-weight: bolder;
-  color:rgb(105, 37, 168);
-} */
 
 /* Dynamic Product Section Button */
 .product-btn:hover .product-btn-dot {
@@ -164,6 +170,7 @@ input:hover {
   font-weight: bold;
   z-index: 10;
 }
+
 /* .checkout-right-sec {
   background: linear-gradient(to bottom, #bbbbbb, #f0f0f0, #f0f0f0, white);
 } */
@@ -185,7 +192,6 @@ input:hover {
   background: #11998e; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #38ef7d, #11998e);
   background: linear-gradient(to right, #38ef7d, #11998e);
-  /* clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%); */
   /* background: #333333; 
   background: -webkit-linear-gradient(
     to right,
@@ -198,6 +204,7 @@ input:hover {
     #dd1818
   ); */
 }
+
 .checkout-footer-span span {
   cursor: pointer;
   color: grey;

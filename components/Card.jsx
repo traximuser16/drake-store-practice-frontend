@@ -1,11 +1,12 @@
-"use client";
+"use client"
 
 import React, { memo, useState } from "react";
 import BlurImage from "./BlurImage";
 import Link from "next/link";
 
 const Card = ({ image, title, price, id, index }) => {
-  const [price_description, setDescription] = useState(price);
+  const floatPrice = parseFloat(price)
+  const [price_description, setDescription] = useState(floatPrice);
 
   return (
     <div className="max-w-full pb-2 bg-[#fbf9f9ff] cursor-pointer" key={index}>
@@ -19,7 +20,7 @@ const Card = ({ image, title, price, id, index }) => {
         </div>
         <h1
           onMouseOver={() => setDescription("S,M,L,XL,XXL")}
-          onMouseLeave={() => setDescription(price)}
+          onMouseLeave={() => setDescription(floatPrice.toString())}
           className="font-bold uppercase w-3/4 lg:w-2/3"
         >
           {price_description}$

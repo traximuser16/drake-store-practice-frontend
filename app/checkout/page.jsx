@@ -5,7 +5,7 @@ import GooglePay from "@/components/GooglePay";
 import ShoppaySvg from "@/components/ShoppaySvg";
 import shirt from "@/assets/shirt1.jpg";
 import CountriesSelect from "@/components/CountriesSelect";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputFeild from "@/components/InputFeild";
 
 const page = () => {
@@ -14,11 +14,18 @@ const page = () => {
     OpenedText: "Hide order summary",
     HiddenText: "Open order summary",
   });
+
+  useEffect(() => {
+    window?.scroll(0, 0);
+  }, [])
+  
   return (
     <div className="w-full grid place-items-center sm:py-4 checkout-back z-10">
       <div className="z-20 max-w-7xl mx-auto h-auto text-black flex flex-col-reverse lg:flex-row items-start gap-8 bg-[#ffffff] sm:rounded-2xl custom-shadow">
+
         {/* Form Section Left */}
         <div className="z-20 w-full lg:w-[55%] h-full py-10 px-4 lg:pt-16 lg:pb-6 lg:pl-20 lg:pr-4">
+
           <div className="hidden lg:block text-xs text-gray-400 space-x-2 mb-10">
             <h2 className="text-3xl mb-4 text-black">DrakeRelated</h2>
             <span className="text-black font-semibold">Information</span>
@@ -102,9 +109,10 @@ const page = () => {
               <span>Terms of service</span>
             </div>
           </div>
+          
         </div>
 
-        {/*Large Screen Products Section */}
+        {/* Large Screen Products Section */}
         <div className="z-20 hidden lg:block w-full h-auto lg:w-[45%] py-10 px-4 lg:pt-16 lg:pb-6 lg:pl-8 lg:pr-20 checkout-right-sec space-y-5">
           <div className="block lg:hidden text-xs text-gray-400 space-x-2 mb-10">
             <h2 className="text-3xl mb-4 text-black">DrakeRelated</h2>
@@ -176,7 +184,7 @@ const page = () => {
           <div className="lg:hidden w-full h-[1px] bg-gray-200 grid place-items-center relative top-12" />
         </div>
 
-        {/*Mobile Screen Products Section */}
+        {/* Mobile Screen Products Section */}
         <div className="lg:hidden w-full h-auto lg:w-[45%] py-4 px-4 lg:pt-16 lg:pb-6 lg:pl-8 lg:pr-20 checkout-right-sec">
           <div className="block lg:hidden text-xs text-gray-400 space-x-2 mb-10">
             <h2 className="text-3xl mb-4 text-black">DrakeRelated</h2>
@@ -213,6 +221,7 @@ const page = () => {
               <span className="text-gray-400">USD</span> $45.00
             </div>
           </div>
+
           <div
             className={`${
               isOpen.open == true ? "h-[35rem]" : "h-0"
@@ -282,6 +291,7 @@ const page = () => {
             <div className="lg:hidden w-full h-[1px] bg-gray-200 grid place-items-center relative top-12" />
           </div>
         </div>
+
       </div>
     </div>
   );
